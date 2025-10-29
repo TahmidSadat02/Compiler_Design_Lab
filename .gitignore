@@ -1,0 +1,57 @@
+# Compiled Executables (C/C++)
+# Ignore all files without extension in lab_1 directory (executables)
+lab_1/all_in_one
+lab_1/avg_value
+lab_1/comment_line
+lab_1/first_last_name
+lab_1/identifire
+lab_1/min_max
+lab_1/task_1
+lab_1/task_2
+lab_1/task_3
+Program
+
+# General executable patterns
+*.out
+*.exe
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+
+# Debug symbols (macOS)
+*.dSYM/
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# VS Code specific (optional - keep settings but ignore workspace)
+.vscode/*.log
+.vscode/ipch/
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+
+# Build directories
+build/
+dist/
+bin/
+obj/
+
+# IDE specific
+*.code-workspace
+.idea/
+*.sublime-*
