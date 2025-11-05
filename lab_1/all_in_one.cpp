@@ -8,6 +8,8 @@ void commentDetector();
 void minMaxCalculator();
 void nameExtractor();
 void averageCalculator();
+void numericConstantChecker();
+void operatorDetector();
 void displayMenu();
 
 int main() {
@@ -15,7 +17,7 @@ int main() {
     
     do {
         displayMenu();
-        cout << "Enter your choice (1-6): ";
+        cout << "Enter your choice (1-8): ";
         cin >> choice;
         cin.ignore();
         
@@ -37,27 +39,37 @@ int main() {
                 averageCalculator();
                 break;
             case 6:
+                numericConstantChecker();
+                break;
+            case 7:
+                operatorDetector();
+                break;
+            case 8:
                 cout << "Thank you for using the program! Goodbye!\n";
                 break;
             default:
-                cout << "Invalid choice! Please select 1-6.\n";
+                cout << "Invalid choice! Please select 1-8.\n";
         }
         
         
-    } while(choice != 6);
+    } while(choice != 8);
     
     return 0;
 }
 
 void displayMenu() {
+    cout << "\n=================================\n";
     cout << "  COMPILER DESIGN LAB - MENU      \n";
+    cout << "=================================\n";
     cout << "  1. Identifier Checker\n";
     cout << "  2. Comment Detector\n";
     cout << "  3. Min/Max Calculator (Array)\n";
     cout << "  4. First & Last Name Extractor\n";
     cout << "  5. Average Calculator\n";
-    cout << "  6. Exit\n";
-    cout << "────────────────────────────────────────\n";
+    cout << "  6. Numeric Constant Checker\n";
+    cout << "  7. Operator Detector\n";
+    cout << "  8. Exit\n";
+    cout << "=================================\n";
 }
 
 
@@ -219,4 +231,57 @@ void averageCalculator() {
     cout << "\n Results:\n";
     cout << "   Sum = " << sum << "\n";
     cout << "   Average = " << average << "\n";
+}
+
+void numericConstantChecker() {
+    cout << "=== NUMERIC CONSTANT CHECKER ===\n\n";
+    string input;
+    
+    cout << "Enter a string to check: ";
+    getline(cin, input);
+    
+    if (input.empty()) {
+        cout << " \"" << input << "\" is NOT a numeric constant (empty string).\n";
+        return;
+    }
+    
+    // Check if all characters are digits
+    bool isNumeric = true;
+    for (int i = 0; i < input.length(); i++) {
+        if (!(input[i] >= '0' && input[i] <= '9')) {
+            isNumeric = false;
+            break;
+        }
+    }
+    
+    if (isNumeric) {
+        cout << " \"" << input << "\" is a NUMERIC CONSTANT.\n";
+    } else {
+        cout << " \"" << input << "\" is NOT a numeric constant.\n";
+    }
+}
+
+void operatorDetector() {
+    cout << "=== OPERATOR DETECTOR ===\n\n";
+    string input;
+    
+    cout << "Enter an expression: ";
+    getline(cin, input);
+    
+    cout << "\n Operators found:\n";
+    
+    int operatorCount = 0;
+    
+    // Check for arithmetic operators: +, -, *, /, %, =
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == '+' || input[i] == '-' || input[i] == '*' || 
+            input[i] == '/' || input[i] == '%' || input[i] == '=') {
+            operatorCount++;
+            cout << "   operator" << operatorCount << ": " << input[i] << "\n";
+        }
+    }
+    
+    if (operatorCount == 0) {
+        cout << "   No operators found.\n";
+    }
 }
