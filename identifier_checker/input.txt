@@ -1,0 +1,10 @@
+hello
+123abc
+my_var
+_data
+variable1
+Sadat
+09jahan
+8989
+08987
+
